@@ -1,7 +1,32 @@
 extends layout
 
 block content
-  ul
-    for friend in friends
-      li= friend.name
+  include header
+  .page-container.row-fluid
+      .page-content
+        .container-fluid
+          .row-fluid
+            .span12
+              .row-fluid.search-forms.search-default
+                form.form-search(action='#')
+                  .chat-form
+                    .input-cont
+                      input.m-wrap(type='text', placeholder='Search...')
+                    button.btn.green(type='button')
+                      | Search
 
+          .row-fluid
+            .well.clearfix
+              .pull-left You have #{friends.length} Friends
+              button.pull-right.btn Add all
+
+          for friend in friends
+            .row-fluid.portfolio-block
+              .portfolio-text
+                img(src='https://graph.facebook.com/#{friend.id}/picture?type=large', width='80px', height='80px')
+                .portfolio-text-info
+                  .portfolio-btn
+                    a.btn.blue.pull-right(href='#')
+                      span Add
+                  h4= friend.name
+                  p New York, NY

@@ -4205,8 +4205,7 @@ Profile Page
 /*portfolio button*/
 .portfolio-btn a {
   display:block;
-  padding:28px 0;
-  background:#ddd !important;
+  padding:28px 15px;
 }
 
 .portfolio-btn a:hover {
@@ -4216,7 +4215,7 @@ Profile Page
 .portfolio-btn span {
   color:#fff;
   font-size:22px;
-  font-weight:200;  
+  font-weight:200;
 }
 
 /*portfolio info*/

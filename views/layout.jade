@@ -12,7 +12,6 @@ html
     link(rel='stylesheet', href='/css/bootstrap-responsive.min.css')
     link(rel='stylesheet', href='/css/metro.css')
     link(rel='stylesheet', href='/css/style.css')
-    //- link(rel='stylesheet', href='/css/style_blue.css')
 
     link(rel='apple-touch-icon', href='touch-icon-iphone.png')
     link(rel='apple-touch-icon', sizes='72x72', href='touch-icon-ipad.png')
@@ -23,16 +22,17 @@ html
     link(href='assets/bootstrap/css/bootstrap-responsive.min.css', rel='stylesheet')
     link(href='assets/font-awesome/css/font-awesome.css', rel='stylesheet')
     link(href='assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css', rel='stylesheet')
-    link(href='assets/css/style.css', rel='stylesheet')
+    link(href='/css/style.css', rel='stylesheet')
     link(href='assets/css/style_responsive.css', rel='stylesheet')
     link#style_color(href='assets/css/style_default.css', rel='stylesheet')
     link(rel='stylesheet', type='text/css', href='assets/chosen-bootstrap/chosen/chosen.css')
     link(rel='stylesheet', type='text/css', href='assets/uniform/css/uniform.default.css')
     link(rel='shortcut icon', href='favicon.ico')
+    link(href='/css/shoplook.css', rel='stylesheet')
+  body.background-splash
 
-  body
     include header
-
+    
     block content
 
     script(src='assets/js/jquery-1.8.3.min.js')

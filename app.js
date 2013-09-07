@@ -6,6 +6,7 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
 var Facebook = require('facebook-node-sdk');
+var async = require('async');
 
 var app = express();
 
@@ -118,12 +119,31 @@ function ensureAuthenticated(req, res, next) {
 
 app.get('/auth/facebook', passport.authenticate('facebook'));
 app.get('/auth/facebook/callback', passport.authenticate('facebook', {
-    successRedirect: '/', failureRedirect: '/'
+    successRedirect: '/home', failureRedirect: '/'
 }));
 
 
 app.get('/', function (req, res) {
-  res.render('index', { user: req.user });
+    if (req.user) {
+      res.redirect('/home');
+    } else {
+      res.render('index', { user: req.user });
+    }
+});
+
+app.get('/home', Facebook.loginRequired(), function (req, res) {
+    var friends = [];
+    req.facebook.api('/me/friends', function(err, friendList) {
+      console.log(friendList);
+      async.forEach(friendList.data, function(item, cb) {
+        req.facebook.api('/' + item.id, function(err, friend) {
+          friends.push(friend);
+          cb();
+        });
+      }, function(err) {
+         res.render('home', { friends: friends });
+      });
+    });
 });
 
 app.get('/login', function(req, res) {
@@ -137,9 +157,17 @@ app.get('/logout', function(req, res){
 
 
 
-app.get('/friends', ensureAuthenticated, function(req, res) {
+app.get('/friends', Facebook.loginRequired(), function(req, res) {
+  var friends = [];
   req.facebook.api('/me/friends', function(err, friendList) {
-    res.render('friends', { friends: friendList.data });
+    async.forEach(friendList.data, function(item, cb) {
+      req.facebook.api('/' + item.id, function(err, friend) {
+        friends.push(friend);
+        cb();
+      });
+    }, function(err) {
+       res.render('friends', { friends: friends });
+    });
   });
 });
 

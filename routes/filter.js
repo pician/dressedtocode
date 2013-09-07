@@ -48,9 +48,8 @@ exports.index = function(req, res){
     ]
   };
 
-  var name = JSON.stringify(filter).capitalize();
 
-  var pageData = {title: name, categories: allData[filter]};
+  var pageData = {title: filter, categories: allData[filter]};
 
   res.render('filter', pageData);
 };
