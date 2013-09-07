@@ -1,5 +1,5 @@
 var express = require('express');
-var levelFirst = require('./routes/levelFirst')
+var filter = require('./routes/filter')
 var http = require('http');
 var path = require('path');
 var mongoose = require('mongoose');
@@ -29,22 +29,16 @@ var User = mongoose.model('User', new mongoose.Schema({
   username: String,
   link: String,
   gender: String,
-  friends: [{ type: mongoose.Schema.ObjectId, ref: 'Friend' }]
+  friends: [String], // string array of fbIds
+  items: [{ type: mongoose.Schema.ObjectId, ref: 'Item' }]
 }));
 
-var Friend = mongoose.model('Friend', new mongoose.Schema({
-  fbId: String,
-  displayName: String,
-  first_name: String,
-  last_name: String,
-  sweaterKnitsTees: String,
-  shirtsAndBlouses: String,
-  denim: String,
-  suitingAndBlazers: String,
-  bra: String,
-  panties: String,
-  outerwear: String,
-  location: String
+var Item = mongoose.model('Item', new mongoose.Schema({
+  userId: { type: mongoose.Schema.ObjectId, ref: 'User' },
+  brandName: String,
+  categoryName: String,
+  size: String,
+  color: String
 }));
 
 passport.serializeUser(function(user, done) {
@@ -80,7 +74,8 @@ passport.use(new FacebookStrategy({
             last_name: profile._json.last_name,
             username: profile._json.username,
             link: profile._json.link,
-            gender: profile._json.gender
+            gender: profile._json.gender,
+            friends: populate(profile._json.friends.id)
           });
           newUser.save(function(err) {
             if(err) return err;
@@ -114,7 +109,7 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/level-first', levelFirst.index);
+app.get('/filter', filter.index);
 
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }

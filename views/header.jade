@@ -33,11 +33,13 @@ body.fixed-top
           //- for filter in filters
             li= filter.name
           li
-            a(href='/level-first?filter=1') filter 1
+            a(href='/filter?filter=gender') Gender
           li
-            a(href='/level-first?filter=2') filter 2
+            a(href='/filter?filter=brands') Brands
           li
-            a(href='/level-first?filter=3') filter 3
+            a(href='/filter?filter=department') Department
+          li
+            a(href='/filter?filter=size') Size
           //- li#header_notification_bar.dropdown
             a.dropdown-toggle(href='#', data-toggle='dropdown')
               i.icon-warning-sign
