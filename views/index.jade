@@ -1,283 +1,158 @@
 extends layout
 
 block content
-  .page-container.row-fluid
-    .page-sidebar.nav-collapse.collapse
-      ul
-        li
-          .sidebar-toggler.hidden-phone
-        li
-          form.sidebar-search
-            .input-box
-              a.remove(href='javascript:;')
-              input(type='text', placeholder='Search...')
-              input.submit(type='button', value=' ')
-        li.start
-          a(href='index.html')
-            i.icon-home
-            span.title Dashboard
-        li.active.has-sub
-          a(href='javascript:;')
-            i.icon-bookmark-empty
-            span.title UI Features
-            span.selected
-            span.arrow.open
-          ul.sub
-            li
-              a(href='ui_general.html') General
-            li
-              a(href='ui_buttons.html') Buttons
-            li
-              a(href='ui_tabs_accordions.html') Tabs & Accordions
-            li
-              a(href='ui_sliders.html') Sliders
-            li.active
-              a(href='ui_tiles.html') Tiles
-            li
-              a(href='ui_typography.html') Typography
-            li
-              a(href='ui_tree.html') Tree View
-            li
-              a(href='ui_nestable.html') Nestable List
-        li.has-sub
-          a(href='javascript:;')
-            i.icon-table
-            span.title Form Stuff
-            span.arrow
-          ul.sub
-            li
-              a(href='form_layout.html') Form Layouts
-            li
-              a(href='form_samples.html') Advance Form Samples
-            li
-              a(href='form_component.html') Form Components
-            li
-              a(href='form_wizard.html') Form Wizard
-            li
-              a(href='form_validation.html') Form Validation
-            li
-              a(href='form_fileupload.html') Multiple File Upload
-            li
-              a(href='form_dropzone.html') Dropzone File Upload
-        li.has-sub
-          a(href='javascript:;')
-            i.icon-th-list
-            span.title Data Tables
-            span.arrow
-          ul.sub
-            li
-              a(href='table_basic.html') Basic Tables
-            li
-              a(href='table_managed.html') Managed Tables
-            li
-              a(href='table_editable.html') Editable Tables
-        li.has-sub
-          a(href='javascript:;')
-            i.icon-th-list
-            span.title Portlets
-            span.arrow
-          ul.sub
-            li
-              a(href='portlet_general.html') General Portlets
-            li
-              a(href='portlet_draggable.html') Draggable Portlets
-        li.has-sub
-          a(href='javascript:;')
-            i.icon-map-marker
-            span.title Maps
-            span.arrow
-          ul.sub
-            li
-              a(href='maps_google.html') Google Maps
-            li
-              a(href='maps_vector.html') Vector Maps
-        li.
-          a(href='charts.html')
-            i.icon-bar-chart
-            span.title Visual Charts
-        li.
-          a(href='calendar.html')
-            i.icon-calendar
-            span.title Calendar
-        li.
-          a(href='gallery.html')
-            i.icon-camera
-            span.title Gallery
-        li.has-sub
-          a(href='javascript:;')
-            i.icon-briefcase
-            span.title Extra
-            span.arrow
-          ul.sub
-            li
-              a(href='extra_profile.html') User Profile
-            li
-              a(href='extra_faq.html') FAQ
-            li
-              a(href='extra_search.html') Search Results
-            li
-              a(href='extra_invoice.html') Invoice
-            li
-              a(href='extra_pricing_table.html') Pricing Tables
-            li
-              a(href='extra_404.html') 404 Page
-            li
-              a(href='extra_500.html') 500 Page
-            li
-              a(href='extra_blank.html') Blank Page
-            li
-              a(href='extra_full_width.html') Full Width Page
-        li.
-          a(href='login.html')
-            i.icon-user
-            span.title Login Page
-    .page-content
-      .container-fluid
-        .row-fluid
-          .span12
-            h3.page-title
-              | Tiles
-              small windows 8 style tiles examples
-            ul.breadcrumb
-              li
-                i.icon-home
-                a(href='index.html') Home
-                i.icon-angle-right
-              li
-                a(href='#') UI Features
-                i.icon-angle-right
-              li
-                a(href='#') Tiles
-        .tiles
-          .tile.double-down.bg-blue
-            .tile-body
-              i.icon-bell
-            .tile-object
-              .name
-                | Notifications
-              .number
-                | 6
-          .tile.bg-green
-            .tile-body
-              i.icon-calendar
-            .tile-object
-              .name
-                | Meetings
-              .number
-                | 12
-          .tile.double.selected.bg-blue
-            .corner
-            .check
-            .tile-body
-              h4 support@metronic.com
-              p Re: Metronic v1.2 - Project Update!
-              p 24 March 2013 12.30PM confirmed for the project plan update meeting...
-            .tile-object
-              .name
-                i.icon-envelope
-              .number
-                | 14
-          .tile.selected.bg-red
-            .corner
-            .tile-body
-              i.icon-user
-            .tile-object
-              .name
-                | Members
-              .number
-                | 452
-          .tile.double.bg-purple
-            .tile-body
-              img(src='assets/img/photo1.jpg', alt='')
-              h3 Announements
-              p
-                | Easily style icon color, size, shadow, and anything that's possible with CSS.
-            .tile-object
-              .name
-                | Bob Nilson
-              .number
-                | 24 Jan 2013
-          .tile.bg-yellow
-            .tile-body
-              i.icon-shopping-cart
-            .tile-object
-              .name
-                | Orders
-              .number
-                | 121
-          .tile.image.selected
-            .tile-body
-              img(src='assets/img/gallery/image2.jpg', alt='')
-            .tile-object
-              .name
-                | Media
-          .tile.bg-green
-            .tile-body
-              i.icon-comments-alt
-            .tile-object
-              .name
-                | Feedback
-              .number
-                | 12
-          .tile.double.bg-grey
-            .tile-body
-              img.pull-right(src='assets/img/photo2.jpg', alt='')
-              h3 @lisa_wong
-              p
-                | I really love this theme. I look forward to check the next release!
-            .tile-object
-              .name
-                i.icon-twitter
-              .number
-                | 10:45PM, 23 Jan
-          .tile.bg-blue
-            .tile-body
-              i.icon-coffee
-            .tile-object
-              .name
-                | Meetups
-              .number
-                | 12 Jan
-          .tile.bg-green
-            .tile-body
-              i.icon-bar-chart
-            .tile-object
-              .name
-                | Reports
-              .number
-          .tile.bg-purple
-            .tile-body
-              i.icon-briefcase
-            .tile-object
-              .name
-                | Documents
-              .number
-                | 124
-          .tile.image.double.selected
-            .tile-body
-              img(src='assets/img/gallery/image4.jpg', alt='')
-            .tile-object
-              .name
-                | Gallery
-              .number
-                | 124
-          .tile.bg-yellow.selected
-            .corner
-            .check
-            .tile-body
-              i.icon-cogs
-            .tile-object
-              .name
-                | Settings
-          .tile.bg-purple
-            .tile-body
-              i.icon-plane
-            .tile-object
-              .name
-                | Projects
-              .number
-                | 34
+  include header
   if !user
-    a.btn.btn-primary(href='/auth/facebook') Login with Facebook
+    .page-container.row-fluid
+      .login-buttons
+        a.btn.blue.big(href='/auth/facebook')
+          i.icon-facebook
+          |  Sign in with Facebook
   else
-    a.btn(href='/logout') Logout
+    .page-container.row-fluid
+      .page-content
+        .container-fluid
+          .row-fluid
+            .span12
+              h3.page-title
+                | Tiles
+                small windows 8 style tiles examples
+              ul.breadcrumb
+                li
+                  i.icon-home
+                  a(href='index.html') Home
+                  i.icon-angle-right
+                li
+                  a(href='#') UI Features
+                  i.icon-angle-right
+                li
+                  a(href='#') Tiles
+          .tiles
+            .tile.double-down.bg-blue
+              .tile-body
+                i.icon-bell
+              .tile-object
+                .name
+                  | Notifications
+                .number
+                  | 6
+            .tile.bg-green
+              .tile-body
+                i.icon-calendar
+              .tile-object
+                .name
+                  | Meetings
+                .number
+                  | 12
+            .tile.double.selected.bg-blue
+              .corner
+              .check
+              .tile-body
+                h4 support@metronic.com
+                p Re: Metronic v1.2 - Project Update!
+                p 24 March 2013 12.30PM confirmed for the project plan update meeting...
+              .tile-object
+                .name
+                  i.icon-envelope
+                .number
+                  | 14
+            .tile.selected.bg-red
+              .corner
+              .tile-body
+                i.icon-user
+              .tile-object
+                .name
+                  | Members
+                .number
+                  | 452
+            .tile.double.bg-purple
+              .tile-body
+                img(src='assets/img/photo1.jpg', alt='')
+                h3 Announements
+                p
+                  | Easily style icon color, size, shadow, and anything that's possible with CSS.
+              .tile-object
+                .name
+                  | Bob Nilson
+                .number
+                  | 24 Jan 2013
+            .tile.bg-yellow
+              .tile-body
+                i.icon-shopping-cart
+              .tile-object
+                .name
+                  | Orders
+                .number
+                  | 121
+            .tile.image.selected
+              .tile-body
+                img(src='assets/img/gallery/image2.jpg', alt='')
+              .tile-object
+                .name
+                  | Media
+            .tile.bg-green
+              .tile-body
+                i.icon-comments-alt
+              .tile-object
+                .name
+                  | Feedback
+                .number
+                  | 12
+            .tile.double.bg-grey
+              .tile-body
+                img.pull-right(src='assets/img/photo2.jpg', alt='')
+                h3 @lisa_wong
+                p
+                  | I really love this theme. I look forward to check the next release!
+              .tile-object
+                .name
+                  i.icon-twitter
+                .number
+                  | 10:45PM, 23 Jan
+            .tile.bg-blue
+              .tile-body
+                i.icon-coffee
+              .tile-object
+                .name
+                  | Meetups
+                .number
+                  | 12 Jan
+            .tile.bg-green
+              .tile-body
+                i.icon-bar-chart
+              .tile-object
+                .name
+                  | Reports
+                .number
+            .tile.bg-purple
+              .tile-body
+                i.icon-briefcase
+              .tile-object
+                .name
+                  | Documents
+                .number
+                  | 124
+            .tile.image.double.selected
+              .tile-body
+                img(src='assets/img/gallery/image4.jpg', alt='')
+              .tile-object
+                .name
+                  | Gallery
+                .number
+                  | 124
+            .tile.bg-yellow.selected
+              .corner
+              .check
+              .tile-body
+                i.icon-cogs
+              .tile-object
+                .name
+                  | Settings
+            .tile.bg-purple
+              .tile-body
+                i.icon-plane
+              .tile-object
+                .name
+                  | Projects
+                .number
+                  | 34

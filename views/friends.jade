@@ -1,7 +1,11 @@
 extends layout
 
 block content
-  ul
-    for friend in friends
-      li= friend.name
+  include header
+  .page-container.row-fluid
+      .page-content
+        .container-fluid
+          .row-fluid
+            .span12
+              | test
 

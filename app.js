@@ -131,6 +131,10 @@ app.get('/', function (req, res) {
   res.render('index', { user: req.user });
 });
 
+app.get('/splash', function (req, res) {
+  res.render('splash', { user: req.user });
+});
+
 app.get('/login', function(req, res) {
  res.redirect('/');
 });
