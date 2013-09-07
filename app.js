@@ -146,9 +146,10 @@ app.get('/logout', function(req, res){
 
 
 
-app.get('/friends', ensureAuthenticated, function(req, res) {
+app.get('/friends', Facebook.loginRequired(), function(req, res) {
   req.facebook.api('/me/friends', function(err, friendList) {
-    res.render('friends', { friends: friendList.data });
+    console.log(friendList)
+    res.render('friends', { friends: friendList });
   });
 });
 

@@ -3,6 +3,7 @@ extends layout
 block content
   include header
   if !user
+    .background-splash
     .page-container.row-fluid
       .login-buttons
         a.btn.blue.big(href='/auth/facebook')
