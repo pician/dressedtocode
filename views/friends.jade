@@ -13,33 +13,17 @@ block content
                   button.btn.green(type='button') Search!
 
           .row-fluid
-              .well.clearfix
-                .pull-left You have 653 Friends
-                button.pull-right.btn Add all
+            .well.clearfix
+              .pull-left You have #{friends.length} Friends
+              button.pull-right.btn Add all
 
-          .row-fluid.portfolio-block
-            .portfolio-text
-              img(src='assets/img/profile/portfolio/logo_metronic.jpg', alt='')
-              .portfolio-text-info
-                .portfolio-btn
-                  a.btn.blue.pull-right(href='#')
-                    span Add
-                h4 Sahat Yalkabov
-                p New York, NY
-
-          .row-fluid.portfolio-block
-            .portfolio-text
-              img(src='assets/img/profile/portfolio/logo_metronic.jpg', alt='')
-              .portfolio-text-info
-                .portfolio-btn
-                  a.btn.blue.pull-right(href='#')
-                    span Add
-                h4 Sahat Yalkabov
-                p New York, NY
-
-
-
-
-
-
-
+          for friend in friends
+            .row-fluid.portfolio-block
+              .portfolio-text
+                img(src='https://graph.facebook.com/#{friend.id}/picture?type=large', width='80px', height='80px')
+                .portfolio-text-info
+                  .portfolio-btn
+                    a.btn.blue.pull-right(href='#')
+                      span Add
+                  h4= friend.name
+                  p New York, NY

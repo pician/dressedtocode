@@ -6,6 +6,7 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
 var Facebook = require('facebook-node-sdk');
+var async = require('async');
 
 var app = express();
 
@@ -131,10 +132,6 @@ app.get('/', function (req, res) {
   res.render('index', { user: req.user });
 });
 
-app.get('/splash', function (req, res) {
-  res.render('splash', { user: req.user });
-});
-
 app.get('/login', function(req, res) {
  res.redirect('/');
 });
@@ -147,9 +144,16 @@ app.get('/logout', function(req, res){
 
 
 app.get('/friends', Facebook.loginRequired(), function(req, res) {
+  var friends = [];
   req.facebook.api('/me/friends', function(err, friendList) {
-    console.log(friendList)
-    res.render('friends', { friends: friendList });
+    async.forEach(friendList.data, function(item, cb) {
+      req.facebook.api('/' + item.id, function(err, friend) {
+        friends.push(friend);
+        cb();
+      });
+    }, function(err) {
+       res.render('friends', { friends: friends });
+    });
   });
 });
 
