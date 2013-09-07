@@ -26,7 +26,20 @@ var User = mongoose.model('User', new mongoose.Schema({
   last_name: String,
   username: String,
   link: String,
-  gender: String
+  gender: String,
+  friends: [{ type: mongoose.Schema.ObjectId, ref: 'Friend' }]
+}));
+
+var Friend = mongoose.model('Friend', new mongoose.Schema({
+  fbId: String,
+  name: String,
+  sweaterKnitsTees: String,
+  shirtsAndBlouses: String,
+  denim: String,
+  suitingAndBlazers: String,
+  bra: String,
+  panties: String,
+  outerwear: String
 }));
 
 passport.serializeUser(function(user, done) {
@@ -47,7 +60,7 @@ passport.use(new FacebookStrategy({
   },
   function(accessToken, refreshToken, profile, done) {
     process.nextTick(function () {
-      User.findOne({ 'googleId': profile.id }, function(err, existingUser) {
+      User.findOne({ 'fbId': profile.id }, function(err, existingUser) {
         if(existingUser) {
           console.log('User: ' + existingUser.displayName + ' found and logged in!');
           done(null, existingUser);
