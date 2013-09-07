@@ -157,6 +157,26 @@ app.get('/logout', function(req, res){
 
 
 
+app.get('/filter_friends', Facebook.loginRequired(), function(req, res) {
+  var friends = { women: [], men: [] };
+  req.facebook.api('/me/friends?fields=gender,name', function(err, friendList) {
+    async.forEach(friendList.data, function(item, cb) {
+      req.facebook.api('/' + item.id, function(err, friend) {
+        if(friend.gender == "female") {
+          friends[women].push(friend);
+        } else {
+          friends[men].push(friend);
+        }
+        cb();
+      });
+    }, function(err) {
+       res.render('friends', { friends: friends });
+    });
+  });
+});
+
+
+
 app.get('/friends', Facebook.loginRequired(), function(req, res) {
   var friends = [];
   req.facebook.api('/me/friends', function(err, friendList) {

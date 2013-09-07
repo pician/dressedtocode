@@ -139,9 +139,17 @@ block content
               | #{title}
         .tiles
           for category in categories
-            a(href="filter?filter=#{category.filter}")
-              div(class='tile #{category.css}')
-                .title-body
-                  h3 #{category.title}
-                .title-object
-                  .name
+            if category.title == "Men" || category.title == "Women"
+              a(href="filter_friends")
+                div(class='tile #{category.css}')
+                  .title-body
+                    h3 #{category.title}
+                  .title-object
+                    .name
+            else
+              a(href="filter?filter=#{category.filter}")
+                div(class='tile #{category.css}')
+                  .title-body
+                    h3 #{category.title}
+                  .title-object
+                    .name
