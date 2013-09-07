@@ -16,6 +16,8 @@
     "underscore": "*",
     "underscore.string": "*",
     "emailjs": "*",
-    "moment": "*"
+    "moment": "*",
+    "passport": "*",
+    "passport-facebook": "*"
   }
 }

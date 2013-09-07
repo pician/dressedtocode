@@ -3,3 +3,10 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+  if !user
+    a.btn.btn-primary(href='/auth/facebook') Login with Facebook
+  else
+    a.btn(href='/logout') Logout
+
+  h1= user
+
