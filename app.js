@@ -33,14 +33,17 @@ var User = mongoose.model('User', new mongoose.Schema({
 
 var Friend = mongoose.model('Friend', new mongoose.Schema({
   fbId: String,
-  name: String,
+  displayName: String,
+  first_name: String,
+  last_name: String,
   sweaterKnitsTees: String,
   shirtsAndBlouses: String,
   denim: String,
   suitingAndBlazers: String,
   bra: String,
   panties: String,
-  outerwear: String
+  outerwear: String,
+  location: String
 }));
 
 passport.serializeUser(function(user, done) {
