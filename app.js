@@ -114,7 +114,6 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/', routes.index);
 app.get('/level-first', levelFirst.index);
 
 function ensureAuthenticated(req, res, next) {
@@ -127,6 +126,11 @@ app.get('/auth/facebook/callback', passport.authenticate('facebook', {
     successRedirect: '/', failureRedirect: '/'
 }));
 
+
+app.get('/', function (req, res) {
+  res.render('index', { user: req.user });
+});
+
 app.get('/login', function(req, res) {
  res.redirect('/');
 });
@@ -136,9 +140,7 @@ app.get('/logout', function(req, res){
   res.redirect('/');
 });
 
-app.get('/', function (req, res) {
-  res.render('index', { user: req.user });
-});
+
 
 app.get('/friends', ensureAuthenticated, function(req, res) {
   req.facebook.api('/me/friends', function(err, friendList) {
