@@ -4,6 +4,7 @@ var path = require('path');
 var mongoose = require('mongoose');
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
+var Facebook = require('facebook-node-sdk');
 
 var app = express();
 
@@ -100,6 +101,7 @@ app.use(express.cookieParser());
 app.use(express.session({ secret: 'keyboard cat' }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(Facebook.middleware({ appId: '159067527627361', secret: '41fba018b8986895be495d74922fae7e' }));
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -127,15 +129,15 @@ app.get('/logout', function(req, res){
   res.redirect('/');
 });
 
-
-app.get('/', function(req, res){
-  res.render('index', { title: 'Express', user: req.user });
+app.get('/', function (req, res) {
+  res.render('index', { user: req.user });
 });
 
-app.get('/friends', ensureAuthenticated, function(req, res){
-  res.send("respond with a resource");
+app.get('/friends', ensureAuthenticated, function(req, res) {
+  req.facebook.api('/me/friends', function(err, friendList) {
+    res.render('friends', { friends: friendList.data });
+  });
 });
-
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
