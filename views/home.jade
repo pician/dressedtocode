@@ -34,5 +34,6 @@ block content
               .portfolio-text
                 img(src='https://graph.facebook.com/#{friend.id}/picture?type=large', width='80px', height='80px')
                 .portfolio-text-info
-                  h4= friend.name
+                  a(href='/user/#{friend.id}')
+                    h4= friend.name
                   p New York, NY

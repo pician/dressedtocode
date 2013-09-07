@@ -146,6 +146,12 @@ app.get('/home', Facebook.loginRequired(), function (req, res) {
     });
 });
 
+app.get('/user/:id', Facebook.loginRequired(), function (req, res) {
+  req.facebook.api('/' + req.params.id, function(err, profile) {
+    res.render('profile', { profile: profile });
+  });
+});
+
 app.get('/login', function(req, res) {
  res.redirect('/');
 });

@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  include header
+  .page-container.row-fluid
+      .page-content
+        .container-fluid
+          .row-fluid.portfolio-block
+            .portfolio-text(style='padding: 5px')
+              img.img.thumbnail(src='https://graph.facebook.com/#{profile.id}/picture?type=large', width='80px', height='80px')
+              .portfolio-text-info
+                h4= profile.name
+                div Birthday: 06/15/1986
+                div Loves: blue, cashmere, winter
+                div Brands/Designers: Gap
+
+          br
+
+          .row-fluid
+            .span6.inline-block
+              button.btn.black.btn-block clothing size
+              button.btn.black.btn-block jewelry
+              button.btn.black.btn-block wishlist
+            .span6.inline-block
+              button.btn.black.btn-block shoes
+              button.btn.black.btn-block bags
+              button.btn.black.btn-block occassions
+
+          br
+          br
+          br
+
+
