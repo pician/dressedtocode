@@ -7,10 +7,13 @@ block content
         .container-fluid
           .row-fluid
             .span12
-              form.form-search(action='#')
-                .input-append
-                  input.m-wrap(type='text')
-                  button.btn.green(type='button') Search!
+              .row-fluid.search-forms.search-default
+                form.form-search(action='#')
+                  .chat-form
+                    .input-cont
+                      input.m-wrap(type='text', placeholder='Search...')
+                    button.btn.green(type='button')
+                      | Search
 
           .row-fluid
             .well.clearfix

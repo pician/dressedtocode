@@ -124,12 +124,31 @@ function ensureAuthenticated(req, res, next) {
 
 app.get('/auth/facebook', passport.authenticate('facebook'));
 app.get('/auth/facebook/callback', passport.authenticate('facebook', {
-    successRedirect: '/', failureRedirect: '/'
+    successRedirect: '/home', failureRedirect: '/'
 }));
 
 
 app.get('/', function (req, res) {
-  res.render('index', { user: req.user });
+    if (req.user) {
+      res.redirect('/home');
+    } else {
+      res.render('index', { user: req.user });
+    }
+});
+
+app.get('/home', Facebook.loginRequired(), function (req, res) {
+    var friends = [];
+    req.facebook.api('/me/friends', function(err, friendList) {
+      console.log(friendList);
+      async.forEach(friendList.data, function(item, cb) {
+        req.facebook.api('/' + item.id, function(err, friend) {
+          friends.push(friend);
+          cb();
+        });
+      }, function(err) {
+         res.render('home', { friends: friends });
+      });
+    });
 });
 
 app.get('/login', function(req, res) {

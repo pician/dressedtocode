@@ -1,0 +1,38 @@
+extends layout
+
+block content
+  include header
+  .page-container.row-fluid
+      .page-content
+        .container-fluid
+          .row-fluid
+
+            .row-fluid.search-forms.search-default
+              form.form-search(action='#')
+                .chat-form
+                  .input-cont
+                    input.m-wrap(type='text', placeholder='Search...')
+                  button.btn.green(type='button')
+                    | Search
+
+            .span12
+              ul.breadcrumb
+                li
+                  a(href='index.html') Gender
+                  | &nbsp;&nbsp;&nbsp;&nbsp;
+                li
+                  a(href='#') Location
+                  | &nbsp;&nbsp;&nbsp;&nbsp;
+                li
+                  a(href='#') Brands
+                  | &nbsp;&nbsp;&nbsp;&nbsp;
+                li
+                  a(href='#') Occassions
+
+          for friend in friends
+            .row-fluid.portfolio-block
+              .portfolio-text
+                img(src='https://graph.facebook.com/#{friend.id}/picture?type=large', width='80px', height='80px')
+                .portfolio-text-info
+                  h4= friend.name
+                  p New York, NY
