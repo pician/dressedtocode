@@ -4,26 +4,14 @@ body.fixed-top
       .container-fluid.pagination-centered
         a.brand(href='/')
           img(src='/assets/img/logo.png', alt='logo')
-//        li.brand.dropdown.user.pull-right
-//            a.dropdown-toggle(href='#', data-toggle='dropdown')
-//              img(alt='', src='assets/img/avatar1_small.jpg')
-//              span.username Bob Nilson
-//              i.icon-angle-down
-//            ul.dropdown-menu
-//              li
-//                a(href='extra_profile.html')
-//                  i.icon-user
-//                  | My Profile
-//              li
-//                a(href='calendar.html')
-//                  i.icon-calendar
-//                  | My Calendar
-//              li
-//                a(href='#')
-//                  i.icon-tasks
-//                  | My Tasks
-//              li.divider
-//              li
-//                a(href='login.html')
-//                  i.icon-key
-//                  | Log Out
+        ul.nav
+          //- for filter in filters
+            li= filter.name
+          li
+            a(href='/filter?filter=gender') Gender
+          li
+            a(href='/filter?filter=brands') Brands
+          li
+            a(href='/filter?filter=department') Department
+          li
+            a(href='/filter?filter=size') Size

@@ -136,133 +136,20 @@ block content
         .row-fluid
           .span12
             h3.page-title
-              | Filter.name
+              | #{title}
         .tiles
-          .tile.double-down.bg-blue
-            .tile-body
-              i.icon-bell
-            .tile-object
-              .name
-                | Notifications
-              .number
-                | 6
-          .tile.bg-green
-            .tile-body
-              i.icon-calendar
-            .tile-object
-              .name
-                | Meetings
-              .number
-                | 12
-          .tile.double.selected.bg-blue
-            .corner
-            .check
-            .tile-body
-              h4 support@metronic.com
-              p Re: Metronic v1.2 - Project Update!
-              p 24 March 2013 12.30PM confirmed for the project plan update meeting...
-            .tile-object
-              .name
-                i.icon-envelope
-              .number
-                | 14
-          .tile.selected.bg-red
-            .corner
-            .tile-body
-              i.icon-user
-            .tile-object
-              .name
-                | Members
-              .number
-                | 452
-          .tile.double.bg-purple
-            .tile-body
-              img(src='assets/img/photo1.jpg', alt='')
-              h3 Announements
-              p
-                | Easily style icon color, size, shadow, and anything that's possible with CSS.
-            .tile-object
-              .name
-                | Bob Nilson
-              .number
-                | 24 Jan 2013
-          .tile.bg-yellow
-            .tile-body
-              i.icon-shopping-cart
-            .tile-object
-              .name
-                | Orders
-              .number
-                | 121
-          .tile.image.selected
-            .tile-body
-              img(src='assets/img/gallery/image2.jpg', alt='')
-            .tile-object
-              .name
-                | Media
-          .tile.bg-green
-            .tile-body
-              i.icon-comments-alt
-            .tile-object
-              .name
-                | Feedback
-              .number
-                | 12
-          .tile.double.bg-grey
-            .tile-body
-              img.pull-right(src='assets/img/photo2.jpg', alt='')
-              h3 @lisa_wong
-              p
-                | I really love this theme. I look forward to check the next release!
-            .tile-object
-              .name
-                i.icon-twitter
-              .number
-                | 10:45PM, 23 Jan
-          .tile.bg-blue
-            .tile-body
-              i.icon-coffee
-            .tile-object
-              .name
-                | Meetups
-              .number
-                | 12 Jan
-          .tile.bg-green
-            .tile-body
-              i.icon-bar-chart
-            .tile-object
-              .name
-                | Reports
-              .number
-          .tile.bg-purple
-            .tile-body
-              i.icon-briefcase
-            .tile-object
-              .name
-                | Documents
-              .number
-                | 124
-          .tile.image.double.selected
-            .tile-body
-              img(src='assets/img/gallery/image4.jpg', alt='')
-            .tile-object
-              .name
-                | Gallery
-              .number
-                | 124
-          .tile.bg-yellow.selected
-            .corner
-            .check
-            .tile-body
-              i.icon-cogs
-            .tile-object
-              .name
-                | Settings
-          .tile.bg-purple
-            .tile-body
-              i.icon-plane
-            .tile-object
-              .name
-                | Projects
-              .number
-                | 34
+          for category in categories
+            if category.title == "Men" || category.title == "Women"
+              a(href="filter_friends")
+                div(class='tile #{category.css}')
+                  .title-body
+                    h3 #{category.title}
+                  .title-object
+                    .name
+            else
+              a(href="filter?filter=#{category.filter}")
+                div(class='tile #{category.css}')
+                  .title-body
+                    h3 #{category.title}
+                  .title-object
+                    .name
