@@ -5,10 +5,6 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
 
-// Routes
-var routes = require('./routes');
-var user = require('./routes/user');
-
 var app = express();
 
 // Connect to MongoDB
@@ -79,10 +75,6 @@ passport.use(new FacebookStrategy({
   }
 ));
 
-
-
-
-
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
@@ -127,7 +119,7 @@ app.get('/', function(req, res){
   res.render('index', { title: 'Express', user: req.user });
 });
 
-app.get('/friends', function(req, res){
+app.get('/friends', ensureAuthenticated, function(req, res){
   res.send("respond with a resource");
 });
 
