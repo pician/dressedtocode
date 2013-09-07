@@ -163,9 +163,9 @@ app.get('/filter_friends', Facebook.loginRequired(), function(req, res) {
     async.forEach(friendList.data, function(item, cb) {
       req.facebook.api('/' + item.id, function(err, friend) {
         if(friend.gender == "female") {
-          friends[women].push(friend);
+          friends.women.push(friend);
         } else {
-          friends[men].push(friend);
+          friends.men.push(friend);
         }
         cb();
       });
