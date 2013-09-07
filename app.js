@@ -165,6 +165,9 @@ app.get('/logout', function(req, res){
 
 app.get('/filter_friends', Facebook.loginRequired(), function(req, res) {
   var friends = { women: [], men: [] };
+  var gender = req.query.gender;
+  console.log(gender);
+
   req.facebook.api('/me/friends?fields=gender,name', function(err, friendList) {
     async.forEach(friendList.data, function(item, cb) {
       req.facebook.api('/' + item.id, function(err, friend) {
@@ -176,7 +179,13 @@ app.get('/filter_friends', Facebook.loginRequired(), function(req, res) {
         cb();
       });
     }, function(err) {
-       res.render('friends', { friends: friends });
+       if (gender === 'Women') {
+         console.log('women')
+         res.render('friends', { friends: friends.women });
+       } else {
+         console.log('men')
+         res.render('friends', { friends: friends.men })
+       }
     });
   });
 });

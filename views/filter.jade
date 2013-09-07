@@ -140,7 +140,7 @@ block content
         .tiles
           for category in categories
             if category.title == "Men" || category.title == "Women"
-              a(href="filter_friends")
+              a(href="filter_friends?gender=#{category.title}")
                 div(class='tile #{category.css}')
                   .title-body
                     h3 #{category.title}
