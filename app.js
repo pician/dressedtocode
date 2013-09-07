@@ -123,8 +123,13 @@ app.get('/logout', function(req, res){
 });
 
 
-app.get('/', routes.index);
-app.get('/users', user.list);
+app.get('/', function(req, res){
+  res.render('index', { title: 'Express', user: req.user });
+});
+
+app.get('/friends', function(req, res){
+  res.send("respond with a resource");
+});
 
 
 http.createServer(app).listen(app.get('port'), function(){
