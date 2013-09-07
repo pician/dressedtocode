@@ -56,7 +56,8 @@ passport.deserializeUser(function(fbId, done) {
 passport.use(new FacebookStrategy({
     clientID: '159067527627361',
     clientSecret: '41fba018b8986895be495d74922fae7e',
-    callbackURL: "http://shoplook.com:3000/auth/facebook/callback"
+    //callbackURL: "http://shoplook.com:3000/auth/facebook/callback"
+    callbackURL: "http://dressedtocode.herokuapp.com/auth/facebook/callback"
   },
   function(accessToken, refreshToken, profile, done) {
     process.nextTick(function () {
