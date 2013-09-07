@@ -1,4 +1,5 @@
 var express = require('express');
+var levelFirst = require('./routes/levelFirst')
 var http = require('http');
 var path = require('path');
 var mongoose = require('mongoose');
@@ -112,6 +113,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
+
+app.get('/', routes.index);
+app.get('/level-first', levelFirst.index);
 
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }

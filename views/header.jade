@@ -1,0 +1,181 @@
+body.fixed-top
+  .header.navbar.navbar-inverse.navbar-fixed-top
+    .navbar-inner
+      .container-fluid
+        //- a.brand(href='index.html')
+          img(src='assets/img/logo.png', alt='logo')
+        //- a.btn-navbar.collapsed(href='javascript:;', data-toggle='collapse', data-target='.nav-collapse')
+          img(src='assets/img/menu-toggler.png', alt='')
+        li.brand.dropdown.user.pull-right
+            a.dropdown-toggle(href='#', data-toggle='dropdown')
+              img(alt='', src='assets/img/avatar1_small.jpg')
+              span.username Bob Nilson
+              i.icon-angle-down
+            ul.dropdown-menu
+              li
+                a(href='extra_profile.html')
+                  i.icon-user
+                  | My Profile
+              li
+                a(href='calendar.html')
+                  i.icon-calendar
+                  | My Calendar
+              li
+                a(href='#')
+                  i.icon-tasks
+                  | My Tasks
+              li.divider
+              li
+                a(href='login.html')
+                  i.icon-key
+                  | Log Out
+        ul.nav
+          //- for filter in filters
+            li= filter.name
+          li
+            a(href='/level-first?filter=1') filter 1
+          li
+            a(href='/level-first?filter=2') filter 2
+          li
+            a(href='/level-first?filter=3') filter 3
+          //- li#header_notification_bar.dropdown
+            a.dropdown-toggle(href='#', data-toggle='dropdown')
+              i.icon-warning-sign
+              span.badge 6
+            ul.dropdown-menu.extended.notification
+              li
+                p You have 14 new notifications
+              li
+                a(href='#')
+                  span.label.label-success
+                    i.icon-plus
+                  | New user registered.
+                  span.time Just now
+              li
+                a(href='#')
+                  span.label.label-important
+                    i.icon-bolt
+                  | Server #12 overloaded.
+                  span.time 15 mins
+              li
+                a(href='#')
+                  span.label.label-warning
+                    i.icon-bell
+                  | Server #2 not respoding.
+                  span.time 22 mins
+              li
+                a(href='#')
+                  span.label.label-info
+                    i.icon-bullhorn
+                  | Application error.
+                  span.time 40 mins
+              li
+                a(href='#')
+                  span.label.label-important
+                    i.icon-bolt
+                  | Database overloaded 68%.
+                  span.time 2 hrs
+              li
+                a(href='#')
+                  span.label.label-important
+                    i.icon-bolt
+                  | 2 user IP blocked.
+                  span.time 5 hrs
+              li.external
+                a(href='#')
+                  | See all notifications
+                  //- i.m-icon-swapright
+          //- li#header_inbox_bar.dropdown
+            a.dropdown-toggle(href='#', data-toggle='dropdown')
+              i.icon-envelope-alt
+              span.badge 5
+            ul.dropdown-menu.extended.inbox
+              li
+                p You have 12 new messages
+              li
+                a(href='#')
+                  span.photo
+                    img(src='./assets/img/avatar2.jpg', alt='')
+                  span.subject
+                    span.from Lisa Wong
+                    span.time Just Now
+                  span.message
+                    | Vivamus sed auctor nibh congue nibh. auctor nibh
+                    | auctor nibh...
+              li
+                a(href='#')
+                  span.photo
+                    img(src='./assets/img/avatar3.jpg', alt='')
+                  span.subject
+                    span.from Richard Doe
+                    span.time 16 mins
+                  span.message
+                    | Vivamus sed congue nibh auctor nibh congue nibh. auctor nibh
+                    | auctor nibh...
+              li
+                a(href='#')
+                  span.photo
+                    img(src='./assets/img/avatar1.jpg', alt='')
+                  span.subject
+                    span.from Bob Nilson
+                    span.time 2 hrs
+                  span.message
+                    | Vivamus sed nibh auctor nibh congue nibh. auctor nibh
+                    | auctor nibh...
+              li.external
+                a(href='#')
+                  | See all messages
+                  //- i.m-icon-swapright
+          //- li#header_task_bar.dropdown
+            a.dropdown-toggle(href='#', data-toggle='dropdown')
+              i.icon-tasks
+              span.badge 5
+            ul.dropdown-menu.extended.tasks
+              li
+                p You have 12 pending tasks
+              li
+                a(href='#')
+                  span.task
+                    span.desc New release v1.2
+                    span.percent 30%
+                  span.progress.progress-success
+                    span.bar(style='width: 30%;')
+              li
+                a(href='#')
+                  span.task
+                    span.desc Application deployment
+                    span.percent 65%
+                  span.progress.progress-danger.progress-striped.active
+                    span.bar(style='width: 65%;')
+              li
+                a(href='#')
+                  span.task
+                    span.desc Mobile app release
+                    span.percent 98%
+                  span.progress.progress-success
+                    span.bar(style='width: 98%;')
+              li
+                a(href='#')
+                  span.task
+                    span.desc Database migration
+                    span.percent 10%
+                  span.progress.progress-warning.progress-striped
+                    span.bar(style='width: 10%;')
+              li
+                a(href='#')
+                  span.task
+                    span.desc Web server upgrade
+                    span.percent 58%
+                  span.progress.progress-info
+                    span.bar(style='width: 58%;')
+              li
+                a(href='#')
+                  span.task
+                    span.desc Mobile development
+                    span.percent 85%
+                  span.progress.progress-success
+                    span.bar(style='width: 85%;')
+              li.external
+                a(href='#')
+                  | See all tasks
+                  i.m-icon-swapright
