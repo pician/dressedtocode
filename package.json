@@ -18,6 +18,7 @@
     "emailjs": "*",
     "moment": "*",
     "passport": "*",
-    "passport-facebook": "*"
+    "passport-facebook": "*",
+    "facebook-node-sdk": "*"
   }
 }
