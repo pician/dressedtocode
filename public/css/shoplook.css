@@ -3,6 +3,7 @@
   margin-right: auto;
   float: none;
 }
+.row-fluid .span6 { display: inline-block; width: 48.61878453038674%; margin-left: 2.7624309392265194%; }
 
 .login-buttons {
   width: 50%;
